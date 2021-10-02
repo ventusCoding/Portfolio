@@ -1,0 +1,27 @@
+.textBlock {
+  margin-left: 100px;
+}
+
+.text1 {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inherit;
+    font-size: 25px;
+}
+
+.text2 {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inherit;
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.text3 {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inherit;
+    font-size: 25px;
+}

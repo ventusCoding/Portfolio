@@ -1,0 +1,42 @@
+.SideDrawer {
+  box-sizing: border-box;
+  height: 100%;
+  left: -1px;
+  max-width: 70%;
+  padding: 32px 16px;
+  position: fixed;
+  top: 0;
+  transition: transform 0.3s ease-out;
+  width: 280px;
+  z-index: 200;
+}
+
+@media (min-width: 750px) {
+  .SideDrawer {
+    display: none;
+  }
+}
+
+.Open {
+  transform: translateX(0);
+}
+
+.Close {
+  transform: translateX(-100%);
+}
+
+.Toggle {
+  height: 11%;
+  width: 100%;
+  text-align: right;
+  display:block;
+  margin-bottom: 32px;
+}
+
+.light {
+  background-color: white;
+}
+
+.night {
+  background-color: black;
+}

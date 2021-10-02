@@ -1,0 +1,117 @@
+.toggle {
+  height: 30px;
+  width: 55px;
+  border-radius: 50px;
+  background-image: linear-gradient(aqua, skyblue);
+  position: relative;
+  cursor: pointer;
+}
+
+.notch {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background: yellow;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  box-shadow: 0 0 5px yellow;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.notch > .crater {
+  background: burlywood;
+  border-radius: 50%;
+  position: absolute;
+  opacity: 0;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 4) inset;
+}
+
+.crater:first-child{
+  left: 2px;
+  top: 5px;
+  height: 6px;
+  width: 10px;
+  transform: rotate(-45deg)
+}
+
+.night .crater{
+  opacity: 0.2;
+}
+
+.crater:last-child{
+  left: 15px;
+  top: 12px;
+  height: 4px;
+  width: 6px;
+  transform: rotate(45deg)
+}
+
+.shape {
+  position: absolute;
+  background: whitesmoke;
+  border-radius: 50%;
+  width: 20px;
+  height: 5px;
+  transition: all 0.3s ease;
+}
+
+.shape.sm {
+  height: 4px;
+  width: 20px;
+  top: 20%;
+  left: 20%;
+  z-index: 2;
+}
+
+.shape.md {
+  height: 4px;
+  width: 25px;
+  top: 40%;
+  left: 55%;
+}
+
+.shape.lg {
+  height: 4px;
+  width: 30px;
+  top: 60%;
+  left: 30%;
+}
+
+.night .shape {
+  background: lightgray;
+  box-shadow: 0 0 10px 2px violet;
+}
+
+.toggle.night {
+  background-image: linear-gradient(midnightblue, rebeccapurple);
+}
+
+.night > .notch {
+  background: whitesmoke;
+  box-shadow: 0 0 5px whitesmoke;
+  transform: translate(25px, 0);
+}
+
+.night .shape.sm {
+  height: 3px;
+  width: 3px;
+  transform: translate(6px, -2px);
+}
+
+.night .shape.md {
+  height: 3px;
+  width: 3px;
+  transform: translate(-10px, 3px);
+}
+
+.night .shape.lg {
+  height: 3px;
+  width: 3px;
+  transform: translate(-3px, 2px);
+}
+
+.night .shape.sm:first-of-type {
+  transform: translate(-5px, 8px);
+}

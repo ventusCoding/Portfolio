@@ -1,0 +1,61 @@
+.NavigationItem {
+  box-sizing: border-box;
+  display: block;
+  margin-top: 20px;
+  width: 100%;
+  margin-right: 10px;
+  font-size: 17px;
+}
+
+.NavigationItem a {
+  box-sizing: border-box;
+  display: block;
+  text-decoration: none;
+  width: 100%;
+}
+
+.NavigationItem a:hover,
+.NavigationItem a:active,
+.NavigationItem a.active {
+  color: #40a4c8;
+}
+
+.light {
+  color: black;
+}
+
+.night {
+  color: white;
+}
+
+@media (min-width: 750px) {
+  .NavigationItem {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    width: auto;
+    text-decoration: none;
+  }
+
+  .NavigationItem a {
+    border-bottom: 4px solid transparent;
+    height: 100%;
+    padding: 20px 0px;
+  }
+
+  .NavigationItem .night:hover,
+  .NavigationItem .night:active,
+  .NavigationItem .night.active {
+    border-bottom: 2px solid transparent;
+    border-bottom: 2px solid white;
+    transition: border-bottom 0.2, color 0.2s;
+  }
+
+  .NavigationItem .light:hover,
+  .NavigationItem .light:active,
+  .NavigationItem .light.active {
+    border-bottom: 2px solid transparent;
+    border-bottom: 2px solid black;
+    transition: border-bottom 0.2, color 0.2s;
+  }
+}

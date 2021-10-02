@@ -1,0 +1,15 @@
+img {
+    border-radius: 50%;
+    height: 50px;
+  }
+
+.logo{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    margin-top: 20px;
+}
+
+p{
+  margin-left: 20px;
+}

@@ -1,0 +1,15 @@
+model-viewer {
+  margin: 20px auto;
+  padding: auto;
+  display: block;
+  width: 200px;
+  height: 200px;
+}
+
+@media (min-width: 750px) {
+  model-viewer {
+    margin: 50px 100px;
+    width: 300px;
+    height: 300px;
+  }
+}
