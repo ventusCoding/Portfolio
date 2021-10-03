@@ -1,0 +1,34 @@
+.HireMeBtnNight {
+  color: black;
+  background-color: white;
+  border: solid 1px black;
+}
+
+.HireMeBtnLight {
+  color: white;
+  background-color: black;
+  border: solid 1px white;
+}
+
+.SeeMyResumeBtnLight {
+  color: black;
+  background-color: white;
+  border: solid 1px black;
+}
+
+.SeeMyResumeBtNLight {
+  color: white;
+  background-color: black;
+  border: solid 1px white;
+}
+
+.button button{
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 50px;
+  margin-right: 10px;
+}

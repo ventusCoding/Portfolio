@@ -39,8 +39,8 @@
 
   .NavigationItem a {
     border-bottom: 4px solid transparent;
-    height: 100%;
-    padding: 20px 0px;
+    height: 50%;
+    padding: 5px 0px;
   }
 
   .NavigationItem .night:hover,
