@@ -8,12 +8,12 @@ import SocialNetwork from "../../HomeSectionComponents/SocialNetwork/SocialNetwo
 import "../grid.css";
 
 import { ModelViewer } from "../../HomeSectionComponents/3dViewer/ModelViewer";
-import RoundedButton from "../../UI/RoundedButton";
+import RoundedButton from "../../UI/RoundedButton/RoundedButton";
 
 const HomeSection = () => {
   return (
     <section>
-      <div className="row">
+      <div className={"row " + classes.sectionRow}>
         <div className={"col span-1-of-2 box " + classes.Section1Col}>
           <div className={"row span-1-of-4 box " + classes.Model}>
             <ModelViewer />

@@ -4,10 +4,24 @@
   border: solid 1px black;
 }
 
+.HireMeBtnNight:hover {
+  color: white;
+  background-color: black;
+  border: solid 1px white;
+  cursor: pointer;
+}
+
 .HireMeBtnLight {
   color: white;
   background-color: black;
   border: solid 1px white;
+}
+
+.HireMeBtnLight:hover {
+  color: black;
+  background-color: white;
+  border: solid 1px black;
+  cursor: pointer;
 }
 
 .SeeMyResumeBtnLight {
@@ -16,10 +30,25 @@
   border: solid 1px black;
 }
 
+.SeeMyResumeBtnLight:hover {
+  color: white;
+  background-color: black;
+  border: solid 1px white;
+  cursor: pointer;
+}
+
 .SeeMyResumeBtNLight {
   color: white;
   background-color: black;
   border: solid 1px white;
+  cursor: pointer;
+}
+
+.SeeMyResumeBtNLight:hover {
+  color: black;
+  background-color: white;
+  border: solid 1px black;
+  cursor: pointer;
 }
 
 .button button{

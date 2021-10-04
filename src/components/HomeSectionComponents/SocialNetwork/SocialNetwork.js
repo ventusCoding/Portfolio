@@ -9,17 +9,18 @@ import linkedInIcon from "../../../assets/linkedIn_icon.svg";
 import youtubeIcon from "../../../assets/youtube_icon.svg";
 
 import { ThemeContext } from "../../../Helper/Context";
+import { Link } from "react-router-dom";
 
 const SocialNetwork = () => {
   const { theme, setTheme } = useContext(ThemeContext);
 
   return (
     <div className={classes.icon}>
-      <img src={facebookIcon} alt="facebook" />
-      <img src={githubIcon} alt="github" className={theme === "light" ? classes.lightMode : classes.nightMode}/>
-      <img src={instagramIcon} alt="instagram" />
-      <img src={linkedInIcon} alt="linkedIn" />
-      <img src={youtubeIcon} alt="youtube" />
+      <a target="_blank" rel="noreferrer" href='http://facebook.com/'><img src={facebookIcon} alt="facebook" /></a>
+      <a target="_blank" rel="noreferrer" href='http://facebook.com/'><img src={instagramIcon} alt="instagram" /></a>
+      <a target="_blank" rel="noreferrer" href='http://facebook.com/'><img src={linkedInIcon} alt="linkedIn" /></a>
+      <a target="_blank" rel="noreferrer" href='http://facebook.com/'><img src={youtubeIcon} alt="youtube" /></a>
+      <a target="_blank" rel="noreferrer" href='http://facebook.com/'><img src={githubIcon} alt="github" className={theme === "light" ? classes.lightMode : classes.nightMode}/></a>
     </div>
   );
 };

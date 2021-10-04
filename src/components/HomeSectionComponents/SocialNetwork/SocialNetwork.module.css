@@ -12,6 +12,10 @@
   margin-right: 10px;
 }
 
+.icon img:hover {
+  cursor: pointer;
+}
+
 @media (min-width: 750px) {
   .icon {
     transform: translate(70%);
@@ -34,6 +38,6 @@
 @media (max-width: 480px) {
   .icon img {
     margin-right: 30px;
-    transform: translate(0,20px);
+    transform: translate(0, 20px);
   }
 }

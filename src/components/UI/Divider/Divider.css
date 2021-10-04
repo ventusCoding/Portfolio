@@ -1,0 +1,36 @@
+.rounded {
+  width: 30%;
+  height: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.light{
+  background-color: black;
+}
+
+.night{
+  background-color: white;
+}
+
+.title{
+  white-space: nowrap;
+  font-weight: 500;
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+
+.roundedRight {
+  margin: 0 3% 0 6%;
+}
+
+.roundedLeft {
+  margin: 0 6% 0 3%;
+}
+
+.divider {
+  margin: 50px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
