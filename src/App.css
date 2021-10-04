@@ -12,6 +12,7 @@ body {
   font-size: 20px;
   font-weight: 300;
   text-rendering: optimizeLegibility;
+  height: 100%;
   overflow-x: hidden;
 }
 

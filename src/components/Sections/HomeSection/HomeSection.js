@@ -2,8 +2,8 @@ import React from "react";
 
 import classes from "./HomeSection.module.css";
 
-import backgroundImg from "../../../assets/background.png";
-import anwerImg from "../../../assets/anwer-no-bg.png";
+import backgroundImg from "../../../assets/background-cropped.png";
+import anwerImg from "../../../assets/anwer-no-bg-cropped.png";
 import SocialNetwork from "../../HomeSectionComponents/SocialNetwork/SocialNetwork";
 import "../grid.css";
 
@@ -39,14 +39,12 @@ const HomeSection = () => {
           </div>
         </div>
 
-        <div className="col span-1-of-2 box">
-
-          <div className={classes.background}>
-            <img src={backgroundImg} alt="background" />
+        <div className={"col span-1-of-2 box " + classes.myStack}>
+          <div>
+            <img src={backgroundImg} className={classes.background} alt="background" />
           </div>
-
-          <div className={classes.anwer}>
-            <img src={anwerImg} alt="anwer" />
+          <div>
+            <img src={anwerImg} className={classes.myImage} alt="anwer" />
           </div>
         </div>
       </div>

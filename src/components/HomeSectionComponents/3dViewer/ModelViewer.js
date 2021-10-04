@@ -19,6 +19,7 @@ export const ModelViewer = () => {
         environment-image="neutral"
         auto-rotate
         camera-controls
+        disable-zoom
       ></model-viewer>
       <div></div>
     </div>
