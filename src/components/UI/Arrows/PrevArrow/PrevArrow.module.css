@@ -1,0 +1,20 @@
+.arrow {
+  border: solid;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+}
+
+.night {
+  border-color: white;
+}
+
+.light {
+  border-color: black;
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}

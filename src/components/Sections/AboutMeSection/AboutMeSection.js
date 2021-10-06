@@ -14,7 +14,7 @@ const AboutMeSection = () => {
           <img src={anwerImg} alt="anwer" className={classes.anwer} />
         </div>
         <div className="col span-1-of-2 box">
-          <div className="row span-1-of-3 box">
+          <div className={"row span-1-of-3 box " + classes.whoAmISection}>
             <h1 className={classes.whoAmI}>Who AM I</h1>
           </div>
 
