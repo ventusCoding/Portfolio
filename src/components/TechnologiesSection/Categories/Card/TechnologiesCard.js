@@ -1,5 +1,5 @@
 import React,{useContext} from 'react'
-import classes from "./ServicesCard.module.css";
+import classes from "./Technologies.module.css";
 import { ThemeContext } from '../../../../Helper/Context';
 
 const TechnologiesCard = (props) => {

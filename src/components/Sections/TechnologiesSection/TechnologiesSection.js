@@ -9,6 +9,8 @@ import settings from "../../../utils/Settings";
 import TechnologiesCard from "../../TechnologiesSection/Categories/Card/TechnologiesCard";
 
 const TechnologiesSection = () => {
+  let selectedSettings = settings;
+
   const list = [
     {
       image:
@@ -57,15 +59,24 @@ const TechnologiesSection = () => {
       : setFiltredList(list.filter((item) => item.category === category));
   }, [category]);
 
-  return (
-    <section>
-      <Divider title="Technologies" />
-      <div className={classes.dd}>
-        <CategoriesItems handleSetTag={setCategory} />
-      </div>
+  // if (filteredList.length > 0) {
+  //   if (filteredList.length < 5) {
+  //     selectedSettings.slidesToShow = filteredList.length;
+  //     selectedSettings.responsive.forEach((element) => {
+  //       element.settings.slidesToShow = filteredList.length;
+  //     });
+  //   } else {
+  //     selectedSettings = settings;
+  //     console.log("okkkkkkkkkkkkkkkkkkkkkkkkkk");
+  //   }
+  // }
 
+  const rendredComponent =
+    filteredList.length === 0 ? (
+      <h3 style={{ textAlign: "center" }}>No DATA!</h3>
+    ) : (
       <div>
-        <Slider {...settings}>
+        <Slider {...selectedSettings}>
           {filteredList.map((item, index) => {
             return (
               <div key={index}>
@@ -75,6 +86,16 @@ const TechnologiesSection = () => {
           })}
         </Slider>
       </div>
+    );
+
+  return (
+    <section>
+      <Divider title="Technologies" />
+      <div className={classes.TechnologiesItems}>
+        <CategoriesItems handleSetTag={setCategory} category={category} />
+      </div>
+
+      {rendredComponent}
     </section>
   );
 };

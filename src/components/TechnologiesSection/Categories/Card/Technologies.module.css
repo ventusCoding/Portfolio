@@ -7,10 +7,16 @@
 }
 
 .card img{
+    /* filter: grayscale(1); */
     width: 100px;
     height: 100px;
     margin: auto;
+    transition: filter 0.5s;
 }
+
+/* .card img:hover{
+    filter: grayscale(0);
+} */
 
 .card h3 {
     margin-top: 20px;

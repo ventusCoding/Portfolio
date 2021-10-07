@@ -7,17 +7,8 @@
     font-size: 17px;
   }
   
-  .CategoriesItem a {
-    box-sizing: border-box;
-    display: block;
-    text-decoration: none;
-    width: 100%;
-  }
-  
-  .CategoriesItem :hover,
-  .CategoriesItem :active,
-  .CategoriesItem a.active {
-    color: #40a4c8;
+  .CategoriesItem :hover{
+    cursor: pointer;
   }
   
   .light {
@@ -26,4 +17,9 @@
   
   .night {
     color: white;
+  }
+
+  .active{
+    font-weight: bold;
+    color: rgb(0, 204, 255);
   }

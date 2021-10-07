@@ -14,7 +14,14 @@ const settings = {
     prevArrow: <PrevArrow />,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 950,
+        settings: {
+          slidesToShow: 4,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 800,
         settings: {
           slidesToShow: 3,
           infinite: true,

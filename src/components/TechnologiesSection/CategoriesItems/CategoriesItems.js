@@ -8,7 +8,17 @@ const CategoriesItems = (props) => {
   return (
     <ul className={classes.CategoriesItems}>
       {list.map((item, index) => {
-        return <CategoriesItem key={index}><button onClick={() => {return (props.handleSetTag(item))}}>{item}</button></CategoriesItem>;
+        return (
+          <CategoriesItem key={index} categoryactive={props.category === item ? true : false}>
+            <p
+              onClick={() => {
+                return props.handleSetTag(item);
+              }}
+            >
+              {item}
+            </p>
+          </CategoriesItem>
+        );
       })}
     </ul>
   );
