@@ -1,0 +1,18 @@
+.night{
+    filter: invert(0)
+}
+
+.light{
+    filter: invert(1)
+}
+
+.card img{
+    width: 100px;
+    height: 100px;
+    margin: auto;
+}
+
+.card h3 {
+    margin-top: 20px;
+    text-align: center;
+}

@@ -6,42 +6,9 @@ import ServicesCard from "../../ServicesSectionComponent/Card/ServicesCard";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { NextArrow, PrevArrow } from "../../UI/Arrows/Arrows";
+import settings from "../../../utils/Settings"
 
 const Services = () => {
-  const settings = {
-    className: classes.dd,
-    infinite: true,
-    centerPadding: "60px",
-    slidesToShow: 5,
-    autoplay: true,
-    swipeToSlide: true,
-    autoplaySpeed: 2000,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          infinite: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  };
 
   const list = [
     {

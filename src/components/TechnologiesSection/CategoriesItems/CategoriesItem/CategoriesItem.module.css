@@ -1,0 +1,29 @@
+.CategoriesItem {
+    box-sizing: border-box;
+    display: block;
+    margin-top: 20px;
+    width: 100%;
+    margin-right: 10px;
+    font-size: 17px;
+  }
+  
+  .CategoriesItem a {
+    box-sizing: border-box;
+    display: block;
+    text-decoration: none;
+    width: 100%;
+  }
+  
+  .CategoriesItem :hover,
+  .CategoriesItem :active,
+  .CategoriesItem a.active {
+    color: #40a4c8;
+  }
+  
+  .light {
+    color: black;
+  }
+  
+  .night {
+    color: white;
+  }
