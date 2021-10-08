@@ -11,8 +11,14 @@ import youtubeIcon from "../../../assets/youtube_icon.svg";
 import { ThemeContext } from "../../../Helper/Context";
 import { Link } from "react-router-dom";
 
-const SocialNetwork = () => {
+const SocialNetwork = (props) => {
   const { theme, setTheme } = useContext(ThemeContext);
+
+  let themeMode = theme === "light" ? classes.lightMode : classes.nightMode
+
+  if(props.footer){
+    themeMode = theme === "light" ? classes.nightMode : classes.lightMode
+  }
 
   return (
     <div className={classes.icon}>
@@ -20,7 +26,7 @@ const SocialNetwork = () => {
       <a target="_blank" rel="noreferrer" href='http://facebook.com/'><img src={instagramIcon} alt="instagram" /></a>
       <a target="_blank" rel="noreferrer" href='http://facebook.com/'><img src={linkedInIcon} alt="linkedIn" /></a>
       <a target="_blank" rel="noreferrer" href='http://facebook.com/'><img src={youtubeIcon} alt="youtube" /></a>
-      <a target="_blank" rel="noreferrer" href='http://facebook.com/'><img src={githubIcon} alt="github" className={theme === "light" ? classes.lightMode : classes.nightMode}/></a>
+      <a target="_blank" rel="noreferrer" href='http://facebook.com/'><img src={githubIcon} alt="github" className={themeMode}/></a>
     </div>
   );
 };
