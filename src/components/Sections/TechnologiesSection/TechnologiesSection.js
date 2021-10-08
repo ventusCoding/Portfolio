@@ -74,7 +74,7 @@ const TechnologiesSection = () => {
     filteredList.length === 0 ? (
       <h3 style={{ textAlign: "center" }}>No DATA!</h3>
     ) : (
-      <div>
+      <div className={classes.dd}>
         <Slider {...settings}>
           {filteredList.map((item, index) => {
             return (
