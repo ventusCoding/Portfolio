@@ -1,5 +1,5 @@
-import classes from './Settings.module.css'
-import { NextArrow, PrevArrow } from "../components/UI/Arrows/Arrows";
+import classes from './WorksSettings.module.css'
+import { NextArrow, PrevArrow } from "../../components/UI/Arrows/Arrows";
 
 
 const settings = {
@@ -14,33 +14,32 @@ const settings = {
     prevArrow: <PrevArrow />,
     responsive: [
       {
-        breakpoint: 950,
+        breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
+          slidesToScroll: 2,
           infinite: true,
-        },
-      },
-      {
-        breakpoint: 800,
-        settings: {
-          slidesToShow: 3,
-          infinite: true,
-        },
+          dots: true
+        }
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
-          initialSlide: 2,
-        },
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+          centerMode: true,
+        }
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-        },
-      },
-    ],
+          slidesToScroll: 1,
+          centerMode: false,
+        }
+      }
+    ]
   };
 
   export default settings;

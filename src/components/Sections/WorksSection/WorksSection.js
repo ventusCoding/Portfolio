@@ -4,7 +4,7 @@ import Divider from "../../UI/Divider/Divider";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import settings from "../../../utils/Settings";
+import settings from "../../../utils/WorksSettings/WorksSettings";
 import CategoriesItems from "../../UI/CategoriesItems/CategoriesItems";
 import WorksCard from "../../WorksSectionComponent/WorksCard/WorksCard";
 
@@ -16,7 +16,7 @@ const WorksSection = () => {
       name: "Work Example",
       description:
         "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum.",
-      category: "Mobile",
+      category: "Web",
       url: "https://play.google.com/store/apps/details?id=com.facebook.katana",
     },
     {
@@ -34,7 +34,7 @@ const WorksSection = () => {
       name: "Work Example",
       description:
         "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum.",
-      category: "Mobile",
+      category: "AR",
     },
     {
       image:
@@ -79,8 +79,8 @@ const WorksSection = () => {
         <Slider {...settings}>
           {filteredList.map((item, index) => {
             return (
-              <div key={index}>
-                <WorksCard name={item.name} image={item.image} description={item.description}  />
+              <div className={classes.dd} key={index}>
+                <WorksCard name={item.name} image={item.image} description={item.description} url={item.url} />
               </div>
             );
           })}

@@ -6,7 +6,7 @@ import ServicesCard from "../../ServicesSectionComponent/Card/ServicesCard";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import settings from "../../../utils/Settings"
+import settings from "../../../utils/TechnologiesSettings/TechnologiesSettings"
 
 const Services = () => {
 
