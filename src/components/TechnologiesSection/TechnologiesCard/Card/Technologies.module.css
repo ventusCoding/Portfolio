@@ -1,37 +1,37 @@
-.night{
-    filter: invert(0)
+.night {
+  filter: invert(0);
 }
 
-.light{
-    filter: invert(1)
+.light {
+  filter: invert(1);
 }
 
 .card {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
-.card img{
-    /* filter: grayscale(1); */
-    width: 100px;
-    height: 100px;
-    margin: auto;
-    transition: filter 0.5s;
+.card img {
+  /* filter: grayscale(1); */
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  transition: filter 0.5s;
 }
 
 /* .card img:hover{
     filter: grayscale(0);
 } */
 
-.card img:hover{
-    transform: scale(1.2);
+.card img:hover {
+  transform: rotate(360deg);
 }
 
-.card img{
-    transform: scale(1);
+.card img {
+  transform: rotate(0deg);
   transition: transform 0.5s, opacity 0.5s;
 }
 
 .card h3 {
-    margin-top: 20px;
-    text-align: center;
+  margin-top: 20px;
+  text-align: center;
 }

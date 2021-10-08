@@ -46,7 +46,7 @@ const Services = () => {
   return (
     <section>
       <Divider title="Services" />
-      <div>
+      <div className={classes.servicesList}>
         <Slider {...settings}>
           {list.map((item, index) => {
             return (
