@@ -4,6 +4,7 @@ import AboutMeSection from "../../components/Sections/AboutMeSection/AboutMeSect
 import HomeSection from "../../components/Sections/HomeSection/HomeSection";
 import Services from "../../components/Sections/ServicesSection/Services";
 import TechnologiesSection from "../../components/Sections/TechnologiesSection/TechnologiesSection";
+import WorksSection from "../../components/Sections/WorksSection/WorksSection";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <AboutMeSection />
       <Services />
       <TechnologiesSection />
+      <WorksSection/>
     </div>
   );
 };

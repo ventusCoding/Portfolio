@@ -6,7 +6,7 @@ const settings = {
     className: classes.settings,
     infinite: true,
     centerPadding: "60px",
-    slidesToShow: 5,
+    slidesToShow: 3,
     autoplay: true,
     swipeToSlide: true,
     autoplaySpeed: 2000,
@@ -16,7 +16,7 @@ const settings = {
       {
         breakpoint: 950,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
           infinite: true,
         },
       },

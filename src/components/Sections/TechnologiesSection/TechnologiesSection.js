@@ -1,15 +1,14 @@
 import Divider from "../../UI/Divider/Divider";
 import React, { useState, useEffect } from "react";
 import classes from "./TechnologiesSection.module.css";
-import CategoriesItems from "../../TechnologiesSection/CategoriesItems/CategoriesItems";
+import CategoriesItems from "../../UI/CategoriesItems/CategoriesItems";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import settings from "../../../utils/Settings";
-import TechnologiesCard from "../../TechnologiesSection/Categories/Card/TechnologiesCard";
+import TechnologiesCard from "../../TechnologiesSection/TechnologiesCard/Card/TechnologiesCard";
 
 const TechnologiesSection = () => {
-  let selectedSettings = settings;
 
   const list = [
     {
@@ -76,7 +75,7 @@ const TechnologiesSection = () => {
       <h3 style={{ textAlign: "center" }}>No DATA!</h3>
     ) : (
       <div>
-        <Slider {...selectedSettings}>
+        <Slider {...settings}>
           {filteredList.map((item, index) => {
             return (
               <div key={index}>

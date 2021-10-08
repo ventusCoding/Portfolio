@@ -14,7 +14,9 @@ export function NextArrow(props) {
         height: "20px",
         width: "20px",
         color: "white",
+        right:'-3%',
         transform: "translateY(-50%)",
+        zIndex:"1"
       }}
       onClick={onClick}
     >
@@ -31,9 +33,11 @@ export function PrevArrow(props) {
         display: "block",
         position: "absolute",
         top: "50%",
+        left:"-3%",
         height: "20px",
         width: "20px",
         transform: "translateY(-50%)",
+        zIndex:"1",
       }}
       onClick={onClick}>
       <PrevArrowComponent />
