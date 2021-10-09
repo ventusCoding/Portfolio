@@ -5,12 +5,53 @@ import CategoriesItems from "../../UI/CategoriesItems/CategoriesItems";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import settings from "../../../utils/TechnologiesSettings/TechnologiesSettings";
 import TechnologiesCard from "../../TechnologiesSection/TechnologiesCard/Card/TechnologiesCard";
+import { NextArrow,PrevArrow } from "../../UI/Arrows/Arrows";
 
 const TechnologiesSection = () => {
 
   const [list, setList] = useState([]);
+
+  const settings = {
+    className: classes.settings,
+    infinite: true,
+    centerPadding: '60px',
+    slidesToShow: Math.min(list.length, 5),
+    autoplay: true,
+    swipeToSlide: true,
+    autoplaySpeed: 2000,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 950,
+        settings: {
+          slidesToShow: Math.min(list.length, 4),
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: Math.min(list.length, 3),
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: Math.min(list.length, 2),
+          initialSlide: Math.min(list.length, 2),
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_FIREBASE_URL}/technologiesSection.json`)
@@ -27,7 +68,7 @@ const TechnologiesSection = () => {
         }
         setList(loadedServicesList);
       });
-  }, [list]);
+  }, []);
 
   const [category, setCategory] = useState("All");
   const [filteredList, setFiltredList] = useState([]);

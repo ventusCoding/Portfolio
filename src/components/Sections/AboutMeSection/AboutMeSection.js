@@ -19,7 +19,7 @@ const AboutMeSection = () => {
         setDescription(responseData.description);
         setImageUrl(responseData.imageUrl)
       });
-  }, [description]);
+  }, []);
 
   return (
     <section>

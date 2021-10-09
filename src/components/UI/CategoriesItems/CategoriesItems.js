@@ -18,7 +18,7 @@ const CategoriesItems = (props) => {
         }
         setList(loadedServicesList);
       });
-  }, [list]);
+  }, []);
 
   return (
     <ul className={classes.CategoriesItems}>

@@ -4,12 +4,52 @@ import Divider from '../../UI/Divider/Divider';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import settings from '../../../utils/WorksSettings/WorksSettings';
 import CategoriesItems from '../../UI/CategoriesItems/CategoriesItems';
 import WorksCard from '../../WorksSectionComponent/WorksCard/WorksCard';
+import { NextArrow,PrevArrow } from '../../UI/Arrows/Arrows';
 
 const WorksSection = () => {
   const [list, setList] = useState([]);
+
+  const settings = {
+    className: classes.settings,
+    infinite: true,
+    centerPadding: "60px",
+    slidesToShow: Math.min(list.length, 3),
+    autoplay: true,
+    swipeToSlide: true,
+    autoplaySpeed: 2000,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: Math.min(list.length, 2),
+          slidesToScroll: Math.min(list.length, 2),
+          centerMode:true,
+          infinite: true,
+        }
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+          centerMode: true,
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: false,
+        }
+      }
+    ]
+  };
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_FIREBASE_URL}/worksSection.json`)
@@ -23,12 +63,12 @@ const WorksSection = () => {
             image: responseData[key].image,
             description: responseData[key].description,
             category: responseData[key].category,
-            url: responseData[key].url,
+            urlList: responseData[key].urlList,
           });
         }
         setList(loadedServicesList);
       });
-  }, [list]);
+  }, []);
 
   const [category, setCategory] = useState('All');
   const [filteredList, setFiltredList] = useState([]);
@@ -52,7 +92,7 @@ const WorksSection = () => {
                   name={item.name}
                   image={item.image}
                   description={item.description}
-                  url={item.url}
+                  urlList={item.urlList}
                 />
               </div>
             );
