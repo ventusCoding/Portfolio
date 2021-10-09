@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import classes from "./CategoriesItems.module.css";
 import CategoriesItem from "./CategoriesItem/CategoriesItem";
 
 const CategoriesItems = (props) => {
-  const list = ["All", "Web", "Mobile", "AR", "Other"];
+
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_FIREBASE_URL}/categories.json`)
+      .then((response) => response.json())
+      .then((responseData) => {
+        const loadedServicesList = [];
+        for (const key in responseData) {
+          loadedServicesList.push(
+            responseData[key]
+          );
+        }
+        setList(loadedServicesList);
+      });
+  }, [list]);
 
   return (
     <ul className={classes.CategoriesItems}>

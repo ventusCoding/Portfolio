@@ -34,7 +34,7 @@ const Services = () => {
         <Slider {...settings}>
           {list.map((item, index) => {
             return (
-              <div style={{ color: 'red' }} key={index}>
+              <div style={{ color: 'red' }} key={item.id}>
                 <ServicesCard name={item.name} image={item.image} />
               </div>
             );
