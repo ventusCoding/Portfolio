@@ -10,12 +10,46 @@ import { NextArrow, PrevArrow } from '../../UI/Arrows/Arrows';
 
 const Services = ({ responseData }) => {
   const [list, setList] = useState([]);
-  const [settings, setSettings] = useState({
+  const settings = {
+    className: classes.settings,
     infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  });
+    centerPadding: '60px',
+    slidesToShow: 5,
+    autoplay: true,
+    swipeToSlide: true,
+    autoplaySpeed: 2000,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 950,
+        settings: {
+          slidesToShow: 4,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 3,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  }
 
   useEffect(() => {
     const loadedServicesList = [];
@@ -27,51 +61,10 @@ const Services = ({ responseData }) => {
       });
     }
     setList(loadedServicesList);
-
-    setSettings({
-      className: classes.settings,
-      infinite: true,
-      centerPadding: '60px',
-      slidesToShow: Math.min(loadedServicesList.length, 5),
-      autoplay: true,
-      swipeToSlide: true,
-      autoplaySpeed: 2000,
-      nextArrow: <NextArrow />,
-      prevArrow: <PrevArrow />,
-      responsive: [
-        {
-          breakpoint: 950,
-          settings: {
-            slidesToShow: Math.min(loadedServicesList.length, 4),
-            infinite: true,
-          },
-        },
-        {
-          breakpoint: 800,
-          settings: {
-            slidesToShow: Math.min(loadedServicesList.length, 3),
-            infinite: true,
-          },
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: Math.min(loadedServicesList.length, 2),
-            initialSlide: Math.min(loadedServicesList.length, 2),
-          },
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-          },
-        },
-      ],
-    });
   }, [responseData]);
 
   return (
-    <section id='services'>
+    <section id="services">
       <Divider title="Services" />
       <div className={classes.servicesList}>
         <Slider {...settings}>

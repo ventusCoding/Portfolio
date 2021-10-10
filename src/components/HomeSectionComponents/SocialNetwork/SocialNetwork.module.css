@@ -7,9 +7,8 @@
 }
 
 .icon img {
-  width: 40px;
-  margin-top: 20px;
-  margin-right: 10px;
+  width: 50%;
+  margin: auto 20px;
 }
 
 .icon img:hover {

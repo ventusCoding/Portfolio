@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
 
 import classes from './NavigationItem.module.css';
 import { ThemeContext } from '../../../../Helper/Context';
@@ -14,17 +13,13 @@ const NavigationItem = ({ children, link, active, setActive }) => {
 
   return (
     <li className={classes.NavigationItem}>
-      <Link
-        to={link}
-        spy={true}
-        offset={-70}
-        smooth={true}
-        duration={500}
+      <a
+        href={link}
         className={cssClasses}
         onClick={() => setActive(children)}
       >
         {children}
-      </Link>
+      </a>
     </li>
   );
 };

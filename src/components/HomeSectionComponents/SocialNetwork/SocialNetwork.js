@@ -9,7 +9,6 @@ import linkedInIcon from "../../../assets/linkedIn_icon.svg";
 import youtubeIcon from "../../../assets/youtube_icon.svg";
 
 import { ThemeContext } from "../../../Helper/Context";
-import { Link } from "react-router-dom";
 
 const SocialNetwork = (props) => {
   const { theme, setTheme } = useContext(ThemeContext);

@@ -14,6 +14,7 @@ body {
   text-rendering: optimizeLegibility;
   height: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth ;
 }
 
 .clearfix {

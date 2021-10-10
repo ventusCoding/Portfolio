@@ -3,6 +3,7 @@
   justify-content: center;
   border-radius: 100%;
   height: 470px;
+  width: 470px;
   margin: auto;
 }
 
@@ -25,9 +26,8 @@
   margin: 0;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 1000px) {
   .buttons {
-    justify-content: center;
     margin-top: 30px;
   }
 
@@ -37,6 +37,17 @@
   }
 
   .description {
-    margin: auto;
+    text-align: center;
+  }
+
+  .anwer {
+    height: 350px;
+    width: 350px;
+  }
+}
+
+@media (max-width: 750px) {
+  .buttons {
+    justify-content: center;
   }
 }

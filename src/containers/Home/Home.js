@@ -6,7 +6,10 @@ import HomeSection from '../../components/Sections/HomeSection/HomeSection';
 import Services from '../../components/Sections/ServicesSection/Services';
 import TechnologiesSection from '../../components/Sections/TechnologiesSection/TechnologiesSection';
 import WorksSection from '../../components/Sections/WorksSection/WorksSection';
-import {Element} from 'react-scroll'
+import { Element } from 'react-scroll';
+import Layout from '../../hoc/Layout/Layout';
+
+import './Home.css';
 
 const Home = () => {
   const [responseData, setResponseData] = useState();
@@ -22,23 +25,19 @@ const Home = () => {
   }, []);
 
   const rendredComponent = loading ? (
-    <h1>Loading ...</h1>
+    <h1 style={{ textAlign: 'center' }}>Loading ...</h1>
   ) : (
-    <React.Fragment>
+    <Layout>
       <HomeSection responseData={responseData.homeSection} />
       <AboutMeSection responseData={responseData.aboutSection} />
       <Services responseData={responseData.servicesSection} />
       <TechnologiesSection responseData={responseData.technologiesSection} />
       <WorksSection responseData={responseData.worksSection} />
       <ContactMeSection />
-    </React.Fragment>
+    </Layout>
   );
 
-  return (
-    <div>
-      {rendredComponent}
-    </div>
-  );
+  return <div>{rendredComponent}</div>;
 };
 
 export default Home;
