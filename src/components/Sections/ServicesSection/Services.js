@@ -71,7 +71,7 @@ const Services = ({ responseData }) => {
   }, [responseData]);
 
   return (
-    <section>
+    <section id='services'>
       <Divider title="Services" />
       <div className={classes.servicesList}>
         <Slider {...settings}>

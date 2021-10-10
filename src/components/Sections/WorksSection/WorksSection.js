@@ -104,7 +104,7 @@ const WorksSection = ({ responseData }) => {
     );
 
   return (
-    <section>
+    <section id='works'>
       <Divider title="Works" />
       <div className={classes.worksItems}>
         <CategoriesItems handleSetTag={setCategory} category={category} />

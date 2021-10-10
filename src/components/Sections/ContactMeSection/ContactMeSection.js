@@ -49,7 +49,7 @@ const ContactMeSection = () => {
 
   return (
     <footer>
-      <section>
+      <section id='contactMe'>
         <Divider title="Contact Me" />
         <div
           className={

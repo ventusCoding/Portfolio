@@ -14,8 +14,11 @@ const TechnologiesSection = ({ responseData }) => {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
   });
+
+  const [category, setCategory] = useState('All');
+  const [filteredList, setFiltredList] = useState([]);
 
   useEffect(() => {
     const loadedServicesList = [];
@@ -29,57 +32,66 @@ const TechnologiesSection = ({ responseData }) => {
     }
     setList(loadedServicesList);
 
-    setSettings(
-      {
-        className: classes.settings,
-        infinite: true,
-        centerPadding: '60px',
-        slidesToShow: Math.min(loadedServicesList.length, 5),
-        autoplay: true,
-        swipeToSlide: true,
-        autoplaySpeed: 2000,
-        nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow />,
-        responsive: [
-          {
-            breakpoint: 950,
-            settings: {
-              slidesToShow: Math.min(loadedServicesList.length, 4),
-              infinite: true,
-            },
+    setSettings({
+      className: classes.settings,
+      infinite: true,
+      centerPadding: '60px',
+      slidesToShow:
+        filteredList.length > 0 ? Math.min(filteredList.length, 5) : 1,
+      autoplay: true,
+      swipeToSlide: true,
+      autoplaySpeed: 2000,
+      nextArrow: <NextArrow />,
+      prevArrow: <PrevArrow />,
+      responsive: [
+        {
+          breakpoint: 950,
+          settings: {
+            slidesToShow:
+              filteredList.length > 0 ? Math.min(filteredList.length, 4) : 1,
+            infinite: true,
           },
-          {
-            breakpoint: 800,
-            settings: {
-              slidesToShow: Math.min(loadedServicesList.length, 3),
-              infinite: true,
-            },
+        },
+        {
+          breakpoint: 800,
+          settings: {
+            slidesToShow:
+              filteredList.length > 0 ? Math.min(filteredList.length, 3) : 1,
+            infinite: true,
           },
-          {
-            breakpoint: 600,
-            settings: {
-              slidesToShow: Math.min(loadedServicesList.length, 2),
-              initialSlide: Math.min(loadedServicesList.length, 2),
-            },
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow:
+              filteredList.length > 0 ? Math.min(filteredList.length, 2) : 1,
+            initialSlide:
+              filteredList.length > 0 ? Math.min(filteredList.length, 2) : 1,
           },
-          {
-            breakpoint: 480,
-            settings: {
-              slidesToShow: 1,
-            },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
           },
-        ],
-      }
-    )
-  }, [responseData]);
-
-  const [category, setCategory] = useState('All');
-  const [filteredList, setFiltredList] = useState([]);
+        },
+      ],
+    });
+  }, [responseData, filteredList.length]);
 
   useEffect(() => {
     category === 'All'
       ? setFiltredList(list)
-      : setFiltredList(list.filter((item) => item.category === category));
+      : setFiltredList(
+          list.filter((item) => {
+            for (const key in item.category) {
+              if (item.category[key] === category) {
+                return item.category[key] === category;
+              }
+            }
+            return null;
+          }),
+        );
   }, [category, list]);
 
   const rendredComponent =
@@ -100,7 +112,7 @@ const TechnologiesSection = ({ responseData }) => {
     );
 
   return (
-    <section>
+    <section id="technologies">
       <Divider title="Technologies" />
       <div className={classes.TechnologiesItems}>
         <CategoriesItems handleSetTag={setCategory} category={category} />

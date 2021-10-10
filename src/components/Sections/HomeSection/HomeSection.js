@@ -18,7 +18,7 @@ const HomeSection = ({ responseData }) => {
   }, [responseData.imageUrl]);
 
   return (
-    <section>
+    <section id='home'>
       <div className={'row ' + classes.sectionRow}>
         <div className={'col span-1-of-2 box ' + classes.Section1Col}>
           <div className={'row span-1-of-4 box ' + classes.Model}>

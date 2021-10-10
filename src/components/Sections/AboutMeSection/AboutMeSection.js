@@ -2,7 +2,6 @@ import Divider from '../../UI/Divider/Divider';
 import React, { useEffect, useState } from 'react';
 import classes from './AboutMeSection.module.css';
 import '../grid.css';
-import anwerImg from '../../../assets/anwer2.jpg';
 import RoundedButton from '../../UI/RoundedButton/RoundedButton';
 
 const AboutMeSection = () => {
@@ -22,7 +21,7 @@ const AboutMeSection = () => {
   }, []);
 
   return (
-    <section>
+    <section id='aboutMe'>
       <Divider title="About Me" />
       <div className="row">
         <div className="col span-1-of-2 box">
