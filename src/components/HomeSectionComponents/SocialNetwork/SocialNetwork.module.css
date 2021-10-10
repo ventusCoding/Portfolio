@@ -7,8 +7,8 @@
 }
 
 .icon img {
-  width: 50%;
-  margin: auto 20px;
+  width: 40px;
+  margin: 20px 10px auto 10px;
 }
 
 .icon img:hover {
@@ -25,6 +25,7 @@
 @media (max-width: 750px) {
   .icon img {
     margin-top: 15px;
+
   }
 
   .icon {
@@ -36,7 +37,6 @@
 
 @media (max-width: 480px) {
   .icon img {
-    margin-right: 30px;
     transform: translate(0, 20px);
   }
 }
