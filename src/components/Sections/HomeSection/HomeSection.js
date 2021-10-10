@@ -10,19 +10,12 @@ import '../grid.css';
 import { ModelViewer } from '../../HomeSectionComponents/3dViewer/ModelViewer';
 import RoundedButton from '../../UI/RoundedButton/RoundedButton';
 
-const HomeSection = () => {
-
-  const [imageUrl,setImageUrl] = useState();
+const HomeSection = ({ responseData }) => {
+  const [imageUrl, setImageUrl] = useState();
 
   useEffect(() => {
-    fetch(
-      `${process.env.REACT_APP_FIREBASE_URL}/homeSection.json`,
-    )
-      .then((response) => response.json())
-      .then((responseData) => {
-        setImageUrl(responseData.imageUrl)
-      });
-  }, []);
+    setImageUrl(responseData.imageUrl);
+  }, [responseData.imageUrl]);
 
   return (
     <section>

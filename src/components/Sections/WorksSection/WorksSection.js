@@ -6,69 +6,71 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import CategoriesItems from '../../UI/CategoriesItems/CategoriesItems';
 import WorksCard from '../../WorksSectionComponent/WorksCard/WorksCard';
-import { NextArrow,PrevArrow } from '../../UI/Arrows/Arrows';
+import { NextArrow, PrevArrow } from '../../UI/Arrows/Arrows';
 
-const WorksSection = () => {
+const WorksSection = ({ responseData }) => {
   const [list, setList] = useState([]);
-
-  const settings = {
-    className: classes.settings,
+  const [settings, setSettings] = useState({
     infinite: true,
-    centerPadding: "60px",
-    slidesToShow: Math.min(list.length, 3),
-    autoplay: true,
-    swipeToSlide: true,
-    autoplaySpeed: 2000,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: Math.min(list.length, 2),
-          slidesToScroll: Math.min(list.length, 2),
-          centerMode:true,
-          infinite: true,
-        }
-      },
-      {
-        breakpoint: 800,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 1,
-          centerMode: true,
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          centerMode: false,
-        }
-      }
-    ]
-  };
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  });
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_FIREBASE_URL}/worksSection.json`)
-      .then((response) => response.json())
-      .then((responseData) => {
-        const loadedServicesList = [];
-        for (const key in responseData) {
-          loadedServicesList.push({
-            id: key,
-            name: responseData[key].name,
-            image: responseData[key].image,
-            description: responseData[key].description,
-            category: responseData[key].category,
-            urlList: responseData[key].urlList,
-          });
-        }
-        setList(loadedServicesList);
+    const loadedServicesList = [];
+    for (const key in responseData) {
+      loadedServicesList.push({
+        id: key,
+        name: responseData[key].name,
+        image: responseData[key].image,
+        description: responseData[key].description,
+        category: responseData[key].category,
+        urlList: responseData[key].urlList,
       });
-  }, []);
+    }
+    setList(loadedServicesList);
+
+    setSettings({
+      className: classes.settings,
+      infinite: true,
+      centerPadding: '60px',
+      slidesToShow: Math.min(loadedServicesList.length, 3),
+      autoplay: true,
+      swipeToSlide: true,
+      autoplaySpeed: 2000,
+      nextArrow: <NextArrow />,
+      prevArrow: <PrevArrow />,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: Math.min(loadedServicesList.length, 2),
+            slidesToScroll: Math.min(loadedServicesList.length, 2),
+            centerMode: true,
+            infinite: true,
+          },
+        },
+        {
+          breakpoint: 800,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            initialSlide: 1,
+            centerMode: true,
+          },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            centerMode: false,
+          },
+        },
+      ],
+    });
+  }, [responseData]);
 
   const [category, setCategory] = useState('All');
   const [filteredList, setFiltredList] = useState([]);
