@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './WorksCard.css';
 
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+
 const WorksCard = (props) => {
   const [list, setList] = useState([]);
 
@@ -11,8 +14,14 @@ const WorksCard = (props) => {
     list.push(props.urlList[key]);
   }
 
+  useEffect(() => {
+    Aos.init({
+      duration: 1000,
+    });
+  }, []);
+
   return (
-    <div className="wrapper">
+    <div data-aos="zoom-in-up" className="wrapper">
       <div className="card">
         <img className="imageCover" src={props.image} alt={props.name} />
         <div className="descriptions">

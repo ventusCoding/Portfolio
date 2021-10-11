@@ -9,15 +9,21 @@ import '../grid.css';
 import { ModelViewer } from '../../HomeSectionComponents/3dViewer/ModelViewer';
 import RoundedButton from '../../UI/RoundedButton/RoundedButton';
 
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+
 const HomeSection = ({ responseData }) => {
   const [imageUrl, setImageUrl] = useState();
 
   useEffect(() => {
+    Aos.init({
+      duration: 2000,
+    });
     setImageUrl(responseData.imageUrl);
   }, [responseData.imageUrl]);
 
   return (
-    <section id='home'>
+    <section data-aos="fade-up" id='home'>
       <div className={'row ' + classes.sectionRow}>
         <div className={'col span-1-of-2 box ' + classes.Section1Col}>
           <div className={'row span-1-of-4 box ' + classes.Model}>

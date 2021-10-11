@@ -3,7 +3,6 @@ import React, { useContext } from 'react';
 import classes from './NavigationItem.module.css';
 import { ThemeContext } from '../../../../Helper/Context';
 
-import { Link } from 'react-scroll';
 
 const NavigationItem = ({ children, link, active, setActive }) => {
   const { theme, setTheme } = useContext(ThemeContext);

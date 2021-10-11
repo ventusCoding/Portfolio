@@ -6,8 +6,8 @@ import HomeSection from '../../components/Sections/HomeSection/HomeSection';
 import Services from '../../components/Sections/ServicesSection/Services';
 import TechnologiesSection from '../../components/Sections/TechnologiesSection/TechnologiesSection';
 import WorksSection from '../../components/Sections/WorksSection/WorksSection';
-import { Element } from 'react-scroll';
 import Layout from '../../hoc/Layout/Layout';
+
 
 import './Home.css';
 
@@ -16,6 +16,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+
     fetch(`${process.env.REACT_APP_FIREBASE_URL}/.json`)
       .then((response) => response.json())
       .then((responseData) => {

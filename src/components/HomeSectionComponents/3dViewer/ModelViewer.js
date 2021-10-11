@@ -9,7 +9,7 @@ import "./ModelViewer.module.css";
 export const ModelViewer = () => {
   const { theme, setTheme } = useContext(ThemeContext);
   return (
-    <div>
+    <div >
       <div className="elements"></div>
       <model-viewer
         src={theme === "light" ? sun : moon}
