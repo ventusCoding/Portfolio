@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import classes from './HomeSection.module.css';
 
 import backgroundImg from '../../../assets/background-cropped.png';
-import anwerImg from '../../../assets/anwer-no-bg-cropped.png';
 import SocialNetwork from '../../HomeSectionComponents/SocialNetwork/SocialNetwork';
 import '../grid.css';
 
@@ -35,15 +34,17 @@ const HomeSection = ({ responseData }) => {
             </div>
           </div>
           <div className={'row span-1-of-4 box ' + classes.SocialIcons}>
-            <SocialNetwork />
+            <SocialNetwork list={responseData.socialNetworkLinks}/>
           </div>
           <div className="row span-1-of-4 box">
             <div className={classes.buttons}>
+            <a href='#contactMe'>
               <RoundedButton
                 text="Hire Me"
                 classLight="HireMeBtnLight"
                 classNight="HireMeBtnNight"
               />
+              </a>
               <RoundedButton
                 text="See My Resume"
                 classLight="SeeMyResumeBtnLight"

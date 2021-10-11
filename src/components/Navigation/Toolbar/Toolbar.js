@@ -9,7 +9,7 @@ import Toggle from "../Toogle/Toggle";
 
 import { ThemeContext } from "../../../Helper/Context";
 
-const Toolbar = ({ drawerToggleClicked }) => {
+const Toolbar = ({ drawerToggleClicked,responseData }) => {
   const { theme, setTheme } = useContext(ThemeContext);
 
   return (
@@ -18,7 +18,7 @@ const Toolbar = ({ drawerToggleClicked }) => {
 
       <div className={classes.DesktopOnly}>
         <div className={classes.fixElements}>
-          <LogoWithName image={Anwer} imageName="Anwer" />
+          <LogoWithName image={responseData.icon} imageName="Anwer" />
           <div className={classes.Toggle}>
             <Toggle />
           </div>

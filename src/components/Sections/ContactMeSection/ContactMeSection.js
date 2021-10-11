@@ -6,7 +6,7 @@ import SocialNetwork from '../../HomeSectionComponents/SocialNetwork/SocialNetwo
 import { ThemeContext } from '../../../Helper/Context';
 import emailjs from 'emailjs-com';
 
-const ContactMeSection = () => {
+const ContactMeSection = ({list}) => {
   const { theme, setTheme } = useContext(ThemeContext);
 
   const textTheme = theme === 'light' ? classes.textLight : classes.textNight;
@@ -90,7 +90,7 @@ const ContactMeSection = () => {
             </div>
             <div className="row">
               <div className={classes.networkAndBtnSection}>
-                <SocialNetwork footer={true} />
+                <SocialNetwork list={list} footer={true} />
 
                 <button type="submit" className={btnCss}>
                   Send

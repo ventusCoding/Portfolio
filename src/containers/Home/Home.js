@@ -27,13 +27,13 @@ const Home = () => {
   const rendredComponent = loading ? (
     <h1 style={{ textAlign: 'center' }}>Loading ...</h1>
   ) : (
-    <Layout>
+    <Layout responseData={responseData.toolBar}>
       <HomeSection responseData={responseData.homeSection} />
       <AboutMeSection responseData={responseData.aboutSection} />
       <Services responseData={responseData.servicesSection} />
       <TechnologiesSection responseData={responseData.technologiesSection} />
       <WorksSection responseData={responseData.worksSection} />
-      <ContactMeSection />
+      <ContactMeSection list={responseData.homeSection.socialNetworkLinks}/>
     </Layout>
   );
 

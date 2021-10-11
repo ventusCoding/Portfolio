@@ -38,11 +38,13 @@ const AboutMeSection = () => {
 
           <div className="row span-1-of-3 box">
             <div className={classes.buttons}>
+              <a href='#contactMe'>
               <RoundedButton
                 text="Hire Me"
                 classLight="HireMeBtnLight"
                 classNight="HireMeBtnNight"
               />
+              </a>
               <RoundedButton
                 text="See My Resume"
                 classLight="SeeMyResumeBtnLight"
