@@ -6,7 +6,7 @@ import RoundedButton from '../../UI/RoundedButton/RoundedButton';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 
-const AboutMeSection = ({ responseData }) => {
+const AboutMeSection = ({ responseData,cv }) => {
   useEffect(() => {
     Aos.init({
       duration: 2000,
@@ -43,13 +43,13 @@ const AboutMeSection = ({ responseData }) => {
                   classNight="HireMeBtnNight"
                 />
               </a>
-              <div data-aos="fade-up-left">
+              <a href={cv} data-aos="fade-up-left">
                 <RoundedButton
                   text="See My Resume"
                   classLight="SeeMyResumeBtnLight"
                   classNight="SeeMyResumeBtNLight"
                 />
-              </div>
+              </a>
             </div>
           </div>
         </div>

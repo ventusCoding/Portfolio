@@ -30,7 +30,7 @@ const Home = () => {
   ) : (
     <Layout responseData={responseData.toolBar}>
       <HomeSection responseData={responseData.homeSection} />
-      <AboutMeSection responseData={responseData.aboutSection} />
+      <AboutMeSection responseData={responseData.aboutSection} cv={responseData.homeSection.cv} />
       <Services responseData={responseData.servicesSection} />
       <TechnologiesSection responseData={responseData.technologiesSection} />
       <WorksSection responseData={responseData.worksSection} />
