@@ -11,6 +11,10 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 
 const WorksSection = ({ responseData }) => {
+
+  const [category, setCategory] = useState("All");
+  const [filteredList, setFiltredList] = useState([]);
+  
   const [settings, setSettings] = useState({
     infinite: true,
     speed: 500,
@@ -27,7 +31,7 @@ const WorksSection = ({ responseData }) => {
       className: classes.settings,
       infinite: true,
       centerPadding: "60px",
-      slidesToShow: Math.min(responseData.length, 3),
+      slidesToShow: Math.min(filteredList.length, 3),
       autoplay: true,
       swipeToSlide: true,
       autoplaySpeed: 2000,
@@ -37,8 +41,8 @@ const WorksSection = ({ responseData }) => {
         {
           breakpoint: 1024,
           settings: {
-            slidesToShow: Math.min(responseData.length, 2),
-            slidesToScroll: Math.min(responseData.length, 2),
+            slidesToShow: Math.min(filteredList.length, 2),
+            slidesToScroll: Math.min(filteredList.length, 2),
             centerMode: true,
             infinite: true,
           },
@@ -62,16 +66,22 @@ const WorksSection = ({ responseData }) => {
         },
       ],
     });
-  }, [responseData]);
+  }, [filteredList]);
 
-  const [category, setCategory] = useState("All");
-  const [filteredList, setFiltredList] = useState([]);
+
 
   useEffect(() => {
     category === "All"
       ? setFiltredList(responseData)
       : setFiltredList(
-          responseData.filter((item) => item.category === category)
+          responseData.filter((item) => {
+            for (const key in item.category) {
+              if (item.category[key] === category) {
+                return item.category[key] === category;
+              }
+            }
+            return null;
+          })
         );
   }, [category, responseData]);
 
@@ -106,7 +116,11 @@ const WorksSection = ({ responseData }) => {
     <section id="works">
       <Divider title="Works" />
       <div className={classes.worksItems}>
-        <CategoriesItems type="worksCategories" handleSetTag={setCategory} category={category} />
+        <CategoriesItems
+          type="worksCategories"
+          handleSetTag={setCategory}
+          category={category}
+        />
       </div>
 
       <div>{rendredComponent}</div>
