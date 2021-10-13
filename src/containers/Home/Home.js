@@ -8,18 +8,29 @@ import TechnologiesSection from "../../components/Sections/TechnologiesSection/T
 import WorksSection from "../../components/Sections/WorksSection/WorksSection";
 import Layout from "../../hoc/Layout/Layout";
 import Spinner from "../../components/UI/Spinner/Spinner";
+import ReactNotification from "react-notifications-component";
+import ErrorModal from "../../components/UI/ErrorModal/ErrorModal";
 
 import "./Home.css";
 
 const Home = () => {
   const [responseData, setResponseData] = useState();
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  function refreshPage() {
+    window.location.reload(false);
+  }
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_FIREBASE_URL}/.json`)
       .then((response) => response.json())
       .then((responseData) => {
         setResponseData(responseData);
+        setLoading(false);
+      })
+      .catch((e) => {
+        setError(true);
         setLoading(false);
       });
   }, []);
@@ -47,8 +58,11 @@ const Home = () => {
         <h1 style={{ textAlign: "center" }}>Loading...</h1>
       </div>
     </div>
+  ) : error ? (
+    <ErrorModal onClose={refreshPage}>Something went wrong try to refresh please!</ErrorModal>
   ) : (
     <Layout responseData={responseData.toolBar}>
+      <ReactNotification />
       <HomeSection responseData={responseData.homeSection} />
       <AboutMeSection
         responseData={responseData.aboutSection}
