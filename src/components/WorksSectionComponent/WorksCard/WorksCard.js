@@ -19,11 +19,14 @@ const WorksCard = (props) => {
                     href={item.link}
                     key={index}
                   >
-                    <img src={item.image} alt={item.name}/>
+                    <img src={item.image} alt={item.name} />
                   </a>
                 );
               })
             : null}
+          {props.videoLink !== undefined ? (
+            <p className="youtubeLink">Click me to see project demo</p>
+          ) : null}
         </div>
       </div>
     </div>

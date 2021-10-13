@@ -85,12 +85,15 @@ const WorksSection = ({ responseData }) => {
             {filteredList.map((item, index) => {
               return (
                 <div className={classes.dd} key={item.id}>
-                  <WorksCard
-                    name={item.name}
-                    image={item.image}
-                    description={item.description}
-                    urlList={item.urlList}
-                  />
+                  <a target="_blank" rel="noreferrer" href={item.videoLink}>
+                    <WorksCard
+                      name={item.name}
+                      image={item.image}
+                      description={item.description}
+                      urlList={item.urlList}
+                      videoLink={item.videoLink}
+                    />
+                  </a>
                 </div>
               );
             })}
