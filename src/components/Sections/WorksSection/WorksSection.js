@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import classes from './WorksSection.module.css';
-import Divider from '../../UI/Divider/Divider';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import CategoriesItems from '../../UI/CategoriesItems/CategoriesItems';
-import WorksCard from '../../WorksSectionComponent/WorksCard/WorksCard';
-import { NextArrow, PrevArrow } from '../../UI/Arrows/Arrows';
+import React, { useEffect, useState } from "react";
+import classes from "./WorksSection.module.css";
+import Divider from "../../UI/Divider/Divider";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import CategoriesItems from "../../UI/CategoriesItems/CategoriesItems";
+import WorksCard from "../../WorksSectionComponent/WorksCard/WorksCard";
+import { NextArrow, PrevArrow } from "../../UI/Arrows/Arrows";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const WorksSection = ({ responseData }) => {
-  const [list, setList] = useState([]);
   const [settings, setSettings] = useState({
     infinite: true,
     speed: 500,
@@ -18,24 +19,15 @@ const WorksSection = ({ responseData }) => {
   });
 
   useEffect(() => {
-    const loadedServicesList = [];
-    for (const key in responseData) {
-      loadedServicesList.push({
-        id: key,
-        name: responseData[key].name,
-        image: responseData[key].image,
-        description: responseData[key].description,
-        category: responseData[key].category,
-        urlList: responseData[key].urlList,
-      });
-    }
-    setList(loadedServicesList);
+    Aos.init({
+      duration: 1000,
+    });
 
     setSettings({
       className: classes.settings,
       infinite: true,
-      centerPadding: '60px',
-      slidesToShow: Math.min(loadedServicesList.length, 3),
+      centerPadding: "60px",
+      slidesToShow: Math.min(responseData.length, 3),
       autoplay: true,
       swipeToSlide: true,
       autoplaySpeed: 2000,
@@ -45,8 +37,8 @@ const WorksSection = ({ responseData }) => {
         {
           breakpoint: 1024,
           settings: {
-            slidesToShow: Math.min(loadedServicesList.length, 2),
-            slidesToScroll: Math.min(loadedServicesList.length, 2),
+            slidesToShow: Math.min(responseData.length, 2),
+            slidesToScroll: Math.min(responseData.length, 2),
             centerMode: true,
             infinite: true,
           },
@@ -72,39 +64,43 @@ const WorksSection = ({ responseData }) => {
     });
   }, [responseData]);
 
-  const [category, setCategory] = useState('All');
+  const [category, setCategory] = useState("All");
   const [filteredList, setFiltredList] = useState([]);
 
   useEffect(() => {
-    category === 'All'
-      ? setFiltredList(list)
-      : setFiltredList(list.filter((item) => item.category === category));
-  }, [category, list]);
+    category === "All"
+      ? setFiltredList(responseData)
+      : setFiltredList(
+          responseData.filter((item) => item.category === category)
+        );
+  }, [category, responseData]);
 
   const rendredComponent =
     filteredList.length === 0 ? (
-      <h3 style={{ textAlign: 'center' }}>No DATA!</h3>
+      <h3 style={{ textAlign: "center" }}>No DATA!</h3>
     ) : (
       <div>
-        <Slider {...settings}>
-          {filteredList.map((item, index) => {
-            return (
-              <div className={classes.dd} key={item.id}>
-                <WorksCard
-                  name={item.name}
-                  image={item.image}
-                  description={item.description}
-                  urlList={item.urlList}
-                />
-              </div>
-            );
-          })}
-        </Slider>
+        <div data-aos="zoom-in-up">
+          <Slider {...settings}>
+            {filteredList.map((item, index) => {
+              return (
+                <div className={classes.dd} key={item.id}>
+                  <WorksCard
+                    name={item.name}
+                    image={item.image}
+                    description={item.description}
+                    urlList={item.urlList}
+                  />
+                </div>
+              );
+            })}
+          </Slider>
+        </div>
       </div>
     );
 
   return (
-    <section id='works'>
+    <section id="works">
       <Divider title="Works" />
       <div className={classes.worksItems}>
         <CategoriesItems handleSetTag={setCategory} category={category} />

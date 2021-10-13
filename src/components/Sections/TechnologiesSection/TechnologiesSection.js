@@ -7,9 +7,10 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import TechnologiesCard from '../../TechnologiesSection/TechnologiesCard/Card/TechnologiesCard';
 import { NextArrow, PrevArrow } from '../../UI/Arrows/Arrows';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const TechnologiesSection = ({ responseData }) => {
-  const [list, setList] = useState([]);
   const [settings, setSettings] = useState({
     infinite: true,
     speed: 500,
@@ -21,16 +22,10 @@ const TechnologiesSection = ({ responseData }) => {
   const [filteredList, setFiltredList] = useState([]);
 
   useEffect(() => {
-    const loadedServicesList = [];
-    for (const key in responseData) {
-      loadedServicesList.push({
-        id: key,
-        name: responseData[key].name,
-        image: responseData[key].image,
-        category: responseData[key].category,
-      });
-    }
-    setList(loadedServicesList);
+
+    Aos.init({
+      duration: 1000,
+    });
 
     setSettings({
       className: classes.settings,
@@ -81,9 +76,9 @@ const TechnologiesSection = ({ responseData }) => {
 
   useEffect(() => {
     category === 'All'
-      ? setFiltredList(list)
+      ? setFiltredList(responseData)
       : setFiltredList(
-          list.filter((item) => {
+        responseData.filter((item) => {
             for (const key in item.category) {
               if (item.category[key] === category) {
                 return item.category[key] === category;
@@ -92,18 +87,18 @@ const TechnologiesSection = ({ responseData }) => {
             return null;
           }),
         );
-  }, [category, list]);
+  }, [category, responseData]);
 
   const rendredComponent =
     filteredList.length === 0 ? (
       <h3 style={{ textAlign: 'center' }}>No DATA!</h3>
     ) : (
-      <div className={classes.techList}>
+      <div data-aos="zoom-out-up"  className={classes.techList}>
         <Slider {...settings}>
           {filteredList.map((item, index) => {
             return (
-              <div key={item.id}>
-                <TechnologiesCard name={item.name} image={item.image} />
+              <div key={item.name}>
+                <TechnologiesCard category={category} name={item.name} image={item.image} />
               </div>
             );
           })}

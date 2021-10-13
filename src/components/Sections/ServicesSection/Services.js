@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {  useEffect } from 'react';
 import classes from './Services.module.css';
 import '../grid.css';
 import Divider from '../../UI/Divider/Divider';
@@ -7,9 +7,18 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { NextArrow, PrevArrow } from '../../UI/Arrows/Arrows';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const Services = ({ responseData }) => {
-  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    Aos.init({
+      duration : 1000
+    })
+
+  }, []);
+
   const settings = {
     className: classes.settings,
     infinite: true,
@@ -51,24 +60,13 @@ const Services = ({ responseData }) => {
     ],
   }
 
-  useEffect(() => {
-    const loadedServicesList = [];
-    for (const key in responseData) {
-      loadedServicesList.push({
-        id: key,
-        name: responseData[key].name,
-        image: responseData[key].image,
-      });
-    }
-    setList(loadedServicesList);
-  }, [responseData]);
 
   return (
     <section id="services">
       <Divider title="Services" />
-      <div className={classes.servicesList}>
+      <div data-aos="zoom-in" className={classes.servicesList}>
         <Slider {...settings}>
-          {list.map((item, index) => {
+          {responseData.map((item, index) => {
             return (
               <div style={{ color: 'red' }} key={item.id}>
                 <ServicesCard name={item.name} image={item.image} />
