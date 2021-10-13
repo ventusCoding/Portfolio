@@ -23,7 +23,7 @@ const Home = () => {
   }
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_FIREBASE_URL}/.json`)
+    fetch(`${process.env.REACT_APP_FIREBASE_URL}/.jon`)
       .then((response) => response.json())
       .then((responseData) => {
         setResponseData(responseData);

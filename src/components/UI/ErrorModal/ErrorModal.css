@@ -30,6 +30,21 @@
   border-radius: 7px;
 }
 
+@media (max-width: 750px) {
+  .error-modal {
+    width: 20rem;
+    left: calc(50% - 10rem);
+  }
+}
+
+@media (max-width: 420px) {
+  .error-modal {
+    width: 15rem;
+    left: calc(50% - 8rem);
+  }
+}
+
+
 .error-modal h2 {
   margin: 0;
   padding: 1rem;
