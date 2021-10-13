@@ -110,7 +110,7 @@ const TechnologiesSection = ({ responseData }) => {
     <section id="technologies">
       <Divider title="Technologies" />
       <div className={classes.TechnologiesItems}>
-        <CategoriesItems handleSetTag={setCategory} category={category} />
+        <CategoriesItems type="technologiesCategories" handleSetTag={setCategory} category={category} />
       </div>
 
       {rendredComponent}

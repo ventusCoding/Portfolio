@@ -7,7 +7,7 @@ const CategoriesItems = (props) => {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_FIREBASE_URL}/categories.json`)
+    fetch(`${process.env.REACT_APP_FIREBASE_URL}/categories/${props.type}.json`)
       .then((response) => response.json())
       .then((responseData) => {
         const loadedServicesList = [];
@@ -18,7 +18,7 @@ const CategoriesItems = (props) => {
         }
         setList(loadedServicesList);
       });
-  }, []);
+  }, [props.type]);
 
   return (
     <ul className={classes.CategoriesItems}>

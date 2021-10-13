@@ -106,7 +106,7 @@ const WorksSection = ({ responseData }) => {
     <section id="works">
       <Divider title="Works" />
       <div className={classes.worksItems}>
-        <CategoriesItems handleSetTag={setCategory} category={category} />
+        <CategoriesItems type="worksCategories" handleSetTag={setCategory} category={category} />
       </div>
 
       <div>{rendredComponent}</div>
