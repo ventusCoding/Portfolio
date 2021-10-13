@@ -9,7 +9,7 @@ const LogoWithName = ({ image, imageName }) => {
   return (
     <div className={classes.logo}>
       <img className={classes.img} src={image} alt={imageName} />
-      <p>
+      <p className={classes.name}>
         Anwer
         <br />
         Baccar
