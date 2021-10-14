@@ -50,4 +50,8 @@
   .buttons {
     justify-content: center;
   }
+
+  .description {
+    margin: auto;
+  }
 }
