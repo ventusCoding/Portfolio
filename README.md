@@ -3,7 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # Add .env file with these variables:
-#REACT_APP_FIREBASE_URL= your firebase database url\
+REACT_APP_FIREBASE_URL= your firebase database url\
 REACT_APP_To_Client_Email_JS= email js template for client\
 REACT_APP_To_Me_Email_JS= email js template for you\
 REACT_APP_Email_JS_Service_ID= email js service id\
