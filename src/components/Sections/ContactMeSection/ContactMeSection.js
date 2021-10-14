@@ -16,7 +16,7 @@ const ContactMeSection = ({ list }) => {
   const handlerNotificationSuccess = () =>
     store.addNotification({
       title: "Success",
-      message: "Notification send Success!",
+      message: "Your message has been sent successfully!",
       type: "success",
       insert: "top",
       container: "top-right",
@@ -31,7 +31,7 @@ const ContactMeSection = ({ list }) => {
   const handlerNotificationError = () =>
     store.addNotification({
       title: "Danger",
-      message: "Failed send Notification Try again please!",
+      message: "Failed to send your message Try again please!",
       type: "Danger",
       insert: "top",
       container: "top-right",
