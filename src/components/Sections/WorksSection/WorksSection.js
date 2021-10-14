@@ -95,7 +95,6 @@ const WorksSection = ({ responseData }) => {
             {filteredList.map((item, index) => {
               return (
                 <div className={classes.dd} key={item.id}>
-                  <a target="_blank" rel="noreferrer" href={item.videoLink}>
                     <WorksCard
                       name={item.name}
                       image={item.image}
@@ -103,7 +102,6 @@ const WorksSection = ({ responseData }) => {
                       urlList={item.urlList}
                       videoLink={item.videoLink}
                     />
-                  </a>
                 </div>
               );
             })}

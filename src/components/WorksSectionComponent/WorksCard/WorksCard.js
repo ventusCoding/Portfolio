@@ -25,7 +25,9 @@ const WorksCard = (props) => {
               })
             : null}
           {props.videoLink !== undefined ? (
-            <p className="youtubeLink">Click me to see project demo</p>
+            <a target="_blank" rel="noreferrer" href={props.videoLink}>
+            <p className="youtubeLink">Click here to see video demo</p>
+            </a>
           ) : null}
         </div>
       </div>
