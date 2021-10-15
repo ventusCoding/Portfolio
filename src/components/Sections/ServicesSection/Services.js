@@ -68,7 +68,7 @@ const Services = ({ responseData }) => {
         <Slider {...settings}>
           {responseData.map((item, index) => {
             return (
-              <div style={{ color: 'red' }} key={item.id}>
+              <div style={{ color: 'red' }} key={item.name}>
                 <ServicesCard name={item.name} image={item.image} />
               </div>
             );

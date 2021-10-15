@@ -8,8 +8,15 @@ import emailjs from "emailjs-com";
 import { store } from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
 import Spinner2 from "../../UI/Spinner2/Spinner2";
+import { useForm } from "react-hook-form";
 
 const ContactMeSection = ({ list }) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   const { theme, setTheme } = useContext(ThemeContext);
   const [loading, setLoading] = useState(false);
 
@@ -53,7 +60,7 @@ const ContactMeSection = ({ list }) => {
 
   const btnCss = classes.btn + " " + btnTheme + " " + textTheme;
 
-  const sendEmailHandler = (e) => {
+  const sendEmailHandler = (data, e) => {
     e.preventDefault();
 
     setLoading(true);
@@ -99,7 +106,7 @@ const ContactMeSection = ({ list }) => {
             theme === "light" ? classes.footerLight : classes.footerNight
           }
         >
-          <form onSubmit={sendEmailHandler}>
+          <form onSubmit={handleSubmit(sendEmailHandler)}>
             <div className="row">
               <div className="col span-1-of-2 ">
                 <div className={classes.inputsSection}>
@@ -109,25 +116,52 @@ const ContactMeSection = ({ list }) => {
                       name="name"
                       className={inputClass}
                       placeholder="Your Name"
+                      {...register("name", { required: "Name is Required" })}
                     />
+                    {errors.name && (
+                      <p className={classes.error}>{errors.name.message}</p>
+                    )}
                     <br />
                     <input
                       type="email"
                       name="email"
                       className={inputClass}
                       placeholder="Your Email"
+                      {...register("email", {
+                        required: "Email is Required",
+                        pattern: {
+                          value:
+                            /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
+                          message: "Invalid Email",
+                        },
+                      })}
                     />
+                    {errors.email && (
+                      <p className={classes.error}>{errors.email.message}</p>
+                    )}
                   </div>
                 </div>
               </div>
               <div className="col span-1-of-2 box">
-                <div className={classes.areaSection}>
+                <div className={"row span-1-of-2 box " + classes.areaRow}>
                   <textarea
                     name="content"
                     className={classes.inputArea + " " + inputClass}
                     placeholder="Content"
                     maxLength="400"
+                    {...register("content", {
+                      required: "Content is Required",
+                      minLength: {
+                        value: 13,
+                        message: "Short message!",
+                      },
+                    })}
                   />
+                </div>
+                <div className="row span-1-of-2 box">
+                  {errors.content && (
+                    <p className={classes.errorContent}>{errors.content.message}</p>
+                  )}
                 </div>
               </div>
             </div>

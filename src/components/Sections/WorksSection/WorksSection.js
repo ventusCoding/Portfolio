@@ -11,10 +11,9 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 
 const WorksSection = ({ responseData }) => {
-
   const [category, setCategory] = useState("All");
   const [filteredList, setFiltredList] = useState([]);
-  
+
   const [settings, setSettings] = useState({
     infinite: true,
     speed: 500,
@@ -31,7 +30,8 @@ const WorksSection = ({ responseData }) => {
       className: classes.settings,
       infinite: true,
       centerPadding: "60px",
-      slidesToShow: Math.min(filteredList.length, 3),
+      slidesToShow:
+        filteredList.length === 0 ? 1 : Math.min(filteredList.length, 3),
       autoplay: true,
       swipeToSlide: true,
       autoplaySpeed: 2000,
@@ -68,8 +68,6 @@ const WorksSection = ({ responseData }) => {
     });
   }, [filteredList]);
 
-
-
   useEffect(() => {
     category === "All"
       ? setFiltredList(responseData)
@@ -94,14 +92,14 @@ const WorksSection = ({ responseData }) => {
           <Slider {...settings}>
             {filteredList.map((item, index) => {
               return (
-                <div className={classes.dd} key={item.id}>
-                    <WorksCard
-                      name={item.name}
-                      image={item.image}
-                      description={item.description}
-                      urlList={item.urlList}
-                      videoLink={item.videoLink}
-                    />
+                <div className={classes.dd} key={item.name}>
+                  <WorksCard
+                    name={item.name}
+                    image={item.image}
+                    description={item.description}
+                    urlList={item.urlList}
+                    videoLink={item.videoLink}
+                  />
                 </div>
               );
             })}
