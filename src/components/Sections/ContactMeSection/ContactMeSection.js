@@ -134,7 +134,7 @@ const ContactMeSection = ({ list }) => {
             <div className="row">
               <div className={classes.networkAndBtnSection}>
                 <SocialNetwork list={list} footer={true} />
-                <div>
+                <div className={classes.btnSpinner}>
                   {loading ? (
                     <Spinner2 />
                   ) : (

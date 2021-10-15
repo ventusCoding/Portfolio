@@ -7,13 +7,13 @@
   margin: 10px;
 }
 
-.footerNight{
+.footerNight {
   color: black;
   text-align: center;
   padding-bottom: 5px;
 }
 
-.footerLight{
+.footerLight {
   color: white;
   text-align: center;
   padding-bottom: 5px;
@@ -29,12 +29,12 @@
   resize: none;
 }
 
-.inputNight{
-    background: black;
+.inputNight {
+  background: black;
 }
 
-.inputLight{
-    background: white;
+.inputLight {
+  background: white;
 }
 
 .inputsSection {
@@ -55,15 +55,18 @@
 }
 
 @media (max-width: 500px) {
-    .networkAndBtnSection {
-        display: block;
-        width: 0%;
-        margin: auto;
-      }
-      .btn {
-        margin-top: 50px;
-      }
+  .btnSpinner {
+    margin-top: 20px;
   }
+  .networkAndBtnSection {
+    display: block;
+    width: 0%;
+    margin: auto;
+  }
+  .btn {
+    margin-top: 50px;
+  }
+}
 
 .btn {
   background: black;
@@ -78,26 +81,26 @@
   margin-bottom: 30px;
 }
 
-.footerNight{
-    background: white;
+.footerNight {
+  background: white;
 }
 
-.footerLight{
-    background: black;
+.footerLight {
+  background: black;
 }
 
-.btnNight{
-    background: black;
+.btnNight {
+  background: black;
 }
 
-.btnLight{
-    background: white;
+.btnLight {
+  background: white;
 }
 
-.textNight{
-    color: white;
+.textNight {
+  color: white;
 }
 
-.textLight{
-    color: black;
+.textLight {
+  color: black;
 }
